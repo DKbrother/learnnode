@@ -9,9 +9,9 @@ http.createServer(function (req,res) {
 		try{
 			router[pathname](req,res,pathname);
 		}catch (err) {
-			console.log(err);
+			console.log(`抛出异常:${err}`);
 			res.writeHead(200,{'Content-Type':'text/html;charset = utf-8'});
-			res.write(err.toString().split(":")[1]);
+			res.write("抛出异常:" + err.toString().split(":")[1]);
 			res.end();
 		}
 	}
